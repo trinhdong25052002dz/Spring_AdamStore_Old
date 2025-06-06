@@ -1,0 +1,3783 @@
+{
+	"info": {
+		"_postman_id": "74442d99-8817-47f9-9a37-97b4a92cd854",
+		"name": "AdamStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36548365"
+	},
+	"item": [
+		{
+			"name": "module auth",
+			"item": [
+				{
+					"name": "forgot password",
+					"item": [
+						{
+							"name": "Forgot-Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"lean270804@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/adamstore/v1/auth/forgot-password"
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot-Password-Verify",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"lean270804@gmail.com\",\r\n  \"verificationCode\": \"423887\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/adamstore/v1/auth/forgot-password/verify-code"
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot-Password-Reset-Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"forgotPasswordToken\": \"ssfvcdsvdvwdfvioqeasacnbebvnnbpvwassxxllslfegdaafvsdaavdd\",\r\n  \"newPassword\": \"123456\",\r\n  \"confirmPassword\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/adamstore/v1/auth/forgot-password/reset-password"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "register",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Lê Văn An\",\r\n  \"email\": \"lean2004@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"confirmPassword\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/adamstore/v1/auth/register"
+							},
+							"response": []
+						},
+						{
+							"name": "Register-Verify",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"lean2004@gmail.com\",\r\n  \"verificationCode\": \"796083\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/adamstore/v1/auth/register/verify"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh-Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"refreshToken\": \"eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJBZG1pbiIsInN1YiI6ImFkbWluQGdtYWlsLmNvbSIsImV4cCI6MTc0NjE2NTg1NiwiaWF0IjoxNzQ0NDM3ODU2LCJqdGkiOiI0ZDg5YTA4Yi0wNDI1LTQ5ZGMtOTUzMy01ZTJiN2UyMTc5MGEifQ.Qs98grRleFruNCfD02RAJe3O9V5suAD2JzjNf57kvrYHe-6bQ2aDPBNQnmw7VQ_5MLIPP_k3zVPsfzeLpXBNYw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/auth/refresh-token"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"oldPassword\": \"abcdefg\",\r\n  \"newPassword\": \"123456\",\r\n  \"confirmPassword\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/auth/change-password"
+					},
+					"response": []
+				},
+				{
+					"name": "My Info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/adamstore/v1/auth/myInfo"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accessToken\": \"eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsZWFuIiwic3ViIjoibGVhbjI3MDgwNEBnbWFpbC5jb20iLCJleHAiOjE3NDQ1Njk0OTUsImlhdCI6MTc0NDQzNzQ5NSwianRpIjoiMjNiOGY1MDUtNTQ2OC00NjcwLWE2OWQtOGZkYTQwYWJkZmE0In0.cym_P6FkO-Mk89n_T8NDcI8HqIRnUz0XAEO0ufVYpo0OMlKziPX5e1MjuL4vDiFwPABSdlZFR5pDU_gdHYjIjA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/auth/logout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module user",
+			"item": [
+				{
+					"name": "Create User with Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Lê Văn An\",\r\n  \"email\": \"lean270804@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"roleIds\": [\r\n    2\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch User By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/users/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Users For Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/users?pageNo=1&pageSize=10&sortBy=name-asc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "name-asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Lê Văn An\",\r\n  \"avatarUrl\": \"https://example.com/avatar.jpg\",\r\n  \"dob\": \"2004-02-12\",\r\n  \"gender\": \"FEMALE\",\r\n  \"roleIds\": [\r\n    2\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/users/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/users/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/users/:id/restore",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"users",
+								":id",
+								"restore"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module branch",
+			"item": [
+				{
+					"name": "Create Branch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Chi nhánh 1\",\r\n  \"location\": \"123 Đường Trần Duy Hưng, Quận Cầu Giấy\",\r\n  \"phone\": \"0578647737\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/branches"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Branch By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/branches/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"branches",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Branches For User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/branches?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"branches"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Branches For Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/branches/admin?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"branches",
+								"admin"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Branch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Chi nhánh 1\",\r\n  \"location\": \"22 Đường Trần Duy Hưng, Quận Cầu Giấy\",\r\n  \"phone\": \"0578647732\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/branches/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"branches",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete Branch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/branches/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"branches",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Branch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/branches/:id/restore",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"branches",
+								":id",
+								"restore"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module color",
+			"item": [
+				{
+					"name": "Create Color",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Black\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/colors"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Color By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/colors/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"colors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Colors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/colors?pageNo=1&pageSize=10&sortBy=name-asc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"colors"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "name-asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Color",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Blue\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/colors/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"colors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Color",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/colors/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"colors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module size",
+			"item": [
+				{
+					"name": "Fetch Size By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/sizes/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"sizes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Sizes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/sizes?pageNo=1&pageSize=10&sortBy=id-asc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"sizes"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "id-asc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module role",
+			"item": [
+				{
+					"name": "Fetch Role By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/roles/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"roles",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Roles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/roles?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"roles"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module permission",
+			"item": [
+				{
+					"name": "Fetch Permission By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/adamstore/v1/permissions/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Permissions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/permissions?pageNo=1&pageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"permissions"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module address",
+			"item": [
+				{
+					"name": "module ward",
+					"item": [
+						{
+							"name": "Fetch Ward By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{accessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/adamstore/v1/wards/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"adamstore",
+										"v1",
+										"wards",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1B1515"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch All Wards",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{accessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/adamstore/v1/wards?pageNo=1&pageSize=10&sortBy",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"adamstore",
+										"v1",
+										"wards"
+									],
+									"query": [
+										{
+											"key": "pageNo",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "sortBy",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "module district",
+					"item": [
+						{
+							"name": "Fetch District By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{accessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/adamstore/v1/districts/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"adamstore",
+										"v1",
+										"districts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch All Districts",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{accessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/adamstore/v1/districts?pageNo=1&pageSize=10&sortBy",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"adamstore",
+										"v1",
+										"districts"
+									],
+									"query": [
+										{
+											"key": "pageNo",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "sortBy",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch All Wards By District",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{accessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/adamstore/v1/districts/:districtId/wards?pageNo=1&pageSize=30&sortBy",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"adamstore",
+										"v1",
+										"districts",
+										":districtId",
+										"wards"
+									],
+									"query": [
+										{
+											"key": "pageNo",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "30"
+										},
+										{
+											"key": "sortBy",
+											"value": null
+										}
+									],
+									"variable": [
+										{
+											"key": "districtId",
+											"value": "1616"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "module province",
+					"item": [
+						{
+							"name": "Fetch Province By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{accessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/adamstore/v1/provinces/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"adamstore",
+										"v1",
+										"provinces",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "226"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch All Provinces",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{accessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/adamstore/v1/provinces?pageNo=1&pageSize=60&sortBy",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"adamstore",
+										"v1",
+										"provinces"
+									],
+									"query": [
+										{
+											"key": "pageNo",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "60"
+										},
+										{
+											"key": "sortBy",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch All Districts By Province",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{accessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/adamstore/v1/provinces/:provinceId/districts?pageNo=1&pageSize=50&sortBy",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"adamstore",
+										"v1",
+										"provinces",
+										":provinceId",
+										"districts"
+									],
+									"query": [
+										{
+											"key": "pageNo",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "50"
+										},
+										{
+											"key": "sortBy",
+											"value": null
+										}
+									],
+									"variable": [
+										{
+											"key": "provinceId",
+											"value": "202"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"isDefault\": true,\r\n  \"phone\": \"0339896966\",\r\n  \"streetDetail\": \"số 12, đường 19-5\",\r\n  \"wardCode\": \"1B1515\",\r\n  \"districtId\": 1542,\r\n  \"provinceId\": 201\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/addresses"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Address By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/addresses/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"addresses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Addresses For Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/addresses?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"addresses"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"isDefault\": true,\r\n  \"phone\": \"0339896966\",\r\n  \"streetDetail\": \"số 12, đường 19-5\",\r\n  \"wardCode\": \"1B1515\",\r\n  \"districtId\": 1542,\r\n  \"provinceId\": 201\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/addresses/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"addresses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hide Address (Delete For User)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/addresses/:id/hide",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"addresses",
+								":id",
+								"hide"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						},
+						"description": "API để người dùng xóa địa chỉ của họ"
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete Address For Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/addresses/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"addresses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/addresses/:id/restore",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"addresses",
+								":id",
+								"restore"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Address By User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/users/addresses?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"users",
+								"addresses"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module promotion",
+			"item": [
+				{
+					"name": "Create Promotion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"code\": \"SALE15\",\r\n  \"description\": \"Giảm 15% toàn bộ sản phẩm\",\r\n  \"discountPercent\": 15,\r\n  \"startDate\": \"2025-05-21\",\r\n  \"endDate\": \"2025-06-22\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/promotions"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Promotion By id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/promotions/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"promotions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Promotions For Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/promotions?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"promotions"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						},
+						"description": "API dùng để lấy tất cả Promotion trong hệ thống cho ADMIN"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Promotion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"code\": \"SUMMER2025\",\r\n  \"description\": \"Phiếu giảm giá 20% cho mùa hè 2025\",\r\n  \"discountPercent\": 20,\r\n  \"startDate\": \"2025-05-11\",\r\n  \"endDate\": \"2025-05-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/promotions/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"promotions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete Promotion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/promotions/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"promotions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Promotion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/promotions/:id/restore",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"promotions",
+								":id",
+								"restore"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Promotions Available By User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/users/promotions/available?pageNo=1&pageSize=10&sortBy=discountPercent-desc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"users",
+								"promotions",
+								"available"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "discountPercent-desc"
+								}
+							]
+						},
+						"description": "API để lấy tất cả Promotion người dùng có thể sử dụng được"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module review",
+			"item": [
+				{
+					"name": "Create Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rating\": 5,\r\n  \"comment\": \"tuyet dep\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/reviews",
+						"description": "API cho người người dùng đánh giá sản phẩm"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Review By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/reviews/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"reviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/reviews?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"reviews"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rating\": 5,\r\n  \"comment\": \"tuyet\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/reviews/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"reviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/reviews/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"reviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module category",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Sơ Mi\",\r\n  \"description\": \"Áo Sơ Mi Nam\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/categories"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Category By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/categories/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"categories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Categories For User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/categories?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						},
+						"description": "API lấy tất cả danh mục (hiển thị cho user)"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Categories For Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/categories/admin?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"categories",
+								"admin"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						},
+						"description": "API lấy tất cả danh mục (hiển thị cho Admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Catergory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Sơ Mi\",\r\n  \"description\": \"Áo Sơ Mi Nam\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/categories/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"categories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/categories/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"categories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/categories/:id/restore",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"categories",
+								":id",
+								"restore"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Products By Category For User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/categories/:categoryId/products?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"categories",
+								":categoryId",
+								"products"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "API lấy tất cả sản phẩm theo danh mục (hiển thị cho user)"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Products By Category For Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/categories/:categoryId/products/admin?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"categories",
+								":categoryId",
+								"products",
+								"admin"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "API lấy tất cả sản phẩm theo danh mục (hiển thị cho Admin)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module file",
+			"item": [
+				{
+					"name": "Upload file",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fileImage",
+									"type": "file",
+									"src": "/D:/Pictures/Image/anh6.jpg"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/adamstore/v1/file/upload/image"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Files",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/file/all?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"file",
+								"all"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete File",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/file/delete/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"file",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Áo Bomber mùa đông\",\r\n    \"description\": \"Áo bomber thiết kế thời trang, chất liệu giữ ấm, phù hợp đi học, đi làm mùa lạnh\",\r\n    \"price\": 120000,\r\n    \"quantity\": 200,\r\n    \"categoryId\": 1,\r\n    \"colorIds\": [\r\n        1\r\n    ],\r\n    \"sizeIds\": [\r\n        1,\r\n        2,\r\n        3,\r\n        4\r\n    ],\r\n    \"imageIds\": [\r\n        1\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/products",
+						"description": "API tạo sản phẩm"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Product By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/products/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Products for User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/products?pageNo=1&pageSize=10&sortBy=price-desc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "price-desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Products for Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/products/admin?pageNo&pageSize&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"products",
+								"admin"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": null
+								},
+								{
+									"key": "pageSize",
+									"value": null
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Áo Bomber mùa đông\",\r\n    \"description\": \"Áo bomber thiết kế thời trang, chất liệu giữ ấm, phù hợp đi học, đi làm mùa lạnh\",\r\n    \"price\": 120000,\r\n    \"quantity\": 200,\r\n    \"categoryId\": 1,\r\n    \"colorIds\": [\r\n        1\r\n    ],\r\n    \"sizeIds\": [\r\n        1,\r\n        2,\r\n        3,\r\n        4\r\n    ],\r\n    \"imageIds\": [\r\n        1\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/products/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/products/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/products/:id/restore",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"products",
+								":id",
+								"restore"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/products/search?pageNo=1&pageSize=10&sortBy=price-asc&search=name~A&search=price>120000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"products",
+								"search"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "price-asc"
+								},
+								{
+									"key": "search",
+									"value": "name~A"
+								},
+								{
+									"key": "search",
+									"value": "price>120000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Reviews By Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/products/:productId/reviews?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"products",
+								":productId",
+								"reviews"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "38"
+								}
+							]
+						},
+						"description": "API lấy tất cả đánh giá của 1 sản phẩm"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Product-Variants By Product For User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/products/:productId/product-variants?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"products",
+								":productId",
+								"product-variants"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "API lấy tất cả biến thể sản phẩm theo sản phẩm (dành cho User)"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All product-variants by product for Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/products/:productId/product-variants/admin?pageNo=2&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"products",
+								":productId",
+								"product-variants",
+								"admin"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "API lấy tất cả biến thể sản phẩm theo sản phẩm (dành cho Admin)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module product-variant",
+			"item": [
+				{
+					"name": "Fetch product variant by product, color, size",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/product-variants/:productId/:colorId/:sizeId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"product-variants",
+								":productId",
+								":colorId",
+								":sizeId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "4"
+								},
+								{
+									"key": "colorId",
+									"value": "6"
+								},
+								{
+									"key": "sizeId",
+									"value": "3"
+								}
+							]
+						},
+						"description": "API lấy biến thể sản phẩm theo size, color, product"
+					},
+					"response": []
+				},
+				{
+					"name": "Update price quantity of Product-variant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"price\": 500000,\r\n  \"quantity\": 250\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/product-variants/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"product-variants",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product Variant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/product-variants/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"product-variants",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Product Variant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/product-variants/:id/restore",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"product-variants",
+								":id",
+								"restore"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module cart-item",
+			"item": [
+				{
+					"name": "Create cart-item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productVariantId\": 4,\r\n  \"quantity\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/cart-items"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch cart-item by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/cart-items/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"cart-items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Cart-Items",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/cart-items?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"cart-items"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update cart-item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/cart-items/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"cart-items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cart-Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/cart-items/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"cart-items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module cart",
+			"item": [
+				{
+					"name": "Fetch All Cart-Items By User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/carts/cart-items?pageNo=1&pageSize=10&sortBy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"carts",
+								"cart-items"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								}
+							]
+						},
+						"description": "API lấy tất cả cart item trong giỏ hàng"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module order",
+			"item": [
+				{
+					"name": "Fetch Order By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/orders/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/orders?pageNo=1&pageSize=10&sortBy=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Order For Current User Or Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/orders/search?pageNo=1&pageSize=10&sortBy&search=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"orders",
+								"search"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								},
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate-Fee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"addressId\": 2,\r\n    \"orderItems\": [\r\n        {\r\n            \"productVariantId\": 5,\r\n            \"quantity\": 6\r\n        },\r\n        {\r\n            \"productVariantId\": 3,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/shipping/calculate-fee",
+						"description": "API tính phí ship"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"addressId\": 1,\r\n  \"orderItems\": [\r\n    {\r\n      \"productVariantId\": 309,\r\n      \"quantity\": 1\r\n    }\r\n  ],\r\n  \"promotionId\": 3,\r\n  \"shippingFee\": 50000,\r\n  \"paymentMethod\": \"VNPAY\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/orders",
+						"description": "API tạo đơn hàng"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Address for Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"addressId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/orders/:orderId/address",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"orders",
+								":orderId",
+								"address"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "API Update địa chỉ cho đơn hàng (khi ở trạng thái PENDING)"
+					},
+					"response": []
+				},
+				{
+					"name": "Payment For Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/orders/:orderId/vn-pay",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"orders",
+								":orderId",
+								"vn-pay"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "169"
+								}
+							]
+						},
+						"description": "API tạo URL thanh toán VNPAY"
+					},
+					"response": []
+				},
+				{
+					"name": "Payment Callback For Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"responseCode\": \"00\",\r\n  \"orderId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/adamstore/v1/orders/vn-pay-callback",
+						"description": "API sau khi thanh toán VNPAY (thanh công responseCode trả về 00, còn lại thất bại)"
+					},
+					"response": []
+				},
+				{
+					"name": "Retry Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/orders/:orderId/retry-payment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"orders",
+								":orderId",
+								"retry-payment"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "API thanh toán lại khi thanh toán thất bại"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module payment-history",
+			"item": [
+				{
+					"name": "Search Payment History",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/payment-histories/search?pageNo=1&pageSize=10&sortBy&startDate=2025-04-01T00:00:00&endDate&paymentStatus=PAID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"payment-histories",
+								"search"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": null
+								},
+								{
+									"key": "startDate",
+									"value": "2025-04-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": null
+								},
+								{
+									"key": "paymentStatus",
+									"value": "PAID"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module revenue",
+			"item": [
+				{
+					"name": "Fetched monthly revenue data",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/revenues/monthly?startDate=2025-02-20&endDate=2025-06-10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"revenues",
+								"monthly"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2025-02-20"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-06-10"
+								}
+							]
+						},
+						"description": "API lấy doanh thu các tháng trong khoảng thời gian trên"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetched daily order revenue data",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/adamstore/v1/revenues/daily-orders?startDate=2025-02-20&endDate=2025-06-10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adamstore",
+								"v1",
+								"revenues",
+								"daily-orders"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2025-02-20"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-06-10"
+								}
+							]
+						},
+						"description": "API lấy thông tin các đơn hàng trong khoảng thời gian"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
