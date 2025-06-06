@@ -1,0 +1,63 @@
+# Database
+# Chinh localhost => image mysql
+DATABASE_URL=jdbc:mysql://mysql-adam-store:3306/adamstore
+DATABASE_USERNAME=root
+DATABASE_PASSWORD=123456
+
+
+# Redis
+REDIS_HOST=redis-adam-store
+REDIS_PORT=6379
+REDIS_PASSWORD=123456
+
+
+# JWT
+JWT_SIGNER_KEY=dCCeqv//YAeuynmH4RosBOJLMPhK8CTktn77sl/VMPdsTAYZ62fAXCJn8+y8FhOi
+JWT_ACCESS_TOKEN_IN_MINUTES=2200
+JWT_REFRESH_KEY=NRsmyBbtwsY9ARARkcKk9gZVVrI2nWVQfi2VJspbQa12fCRBbzBnR1UUXksTbFjy
+JWT_REFRESH_TOKEN_IN_DAYS=20
+JWT_RESET_KEY=ew9hPRhXvTJ60fM28ol+i7V9xttIyA4zTMSO9kLPqCRHaztmlncsDT13U07HS+0t
+JWT_RESET_TOKEN_IN_MINUTES=15
+
+
+# Swagger
+OPEN_API_TITLE=fashion-sales-chatbot
+OPEN_API_VERSION=v1.0.0
+OPEN_API_DESCRIPTION=Api Service
+SERVER_IP=localhost
+
+
+# Email
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=trinhdong255@gmail.com
+MAIL_PASSWORD=dwwd wvpg qsko snoe
+MAIL_SMTP_AUTH=true
+MAIL_SMTP_STARTTLS_ENABLE=true
+
+
+# Cloudinary
+CLOUDINARY_NAME=dz5wejuuf
+CLOUDINARY_API_KEY=744487575457224
+CLOUDINARY_API_SECRET=ZWVl6ZQ9r_r8qlV_HK_DRzrHUCs
+
+
+# GHN
+GHN_TOKEN=cc1d501c-19bf-11f0-a49b-e655c52216f4
+GHN_PROVINCE_URL=https://online-gateway.ghn.vn/shiip/public-api/master-data/province
+GHN_DISTRICT_URL=https://online-gateway.ghn.vn/shiip/public-api/master-data/district
+GHN_WARD_URL=https://online-gateway.ghn.vn/shiip/public-api/master-data/ward
+GHN_FEE_URL=https://online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee
+SHOP_ID=5734427
+SERVICE_TYPE_ID=2
+FROM_DISTRICT_ID=1455
+
+
+# VNPAY
+VNPAY_URL=https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+VNPAY_TMN_CODE=JMC3W5K2
+VNPAY_SECRET_KEY=H4DEAXV2XP8UCEZL7O7VE48OQ3IUU0TV
+VNPAY_RETURN_URL=http://localhost:5174/
+VNPAY_VERSION=2.1.0
+VNPAY_COMMAND=pay
+VNPAY_ORDER_TYPE=other
