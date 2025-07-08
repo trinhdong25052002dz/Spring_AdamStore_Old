@@ -21,7 +21,7 @@ JWT_RESET_TOKEN_IN_MINUTES=15
 
 
 # Swagger
-OPEN_API_TITLE=fashion-sales-chatbot
+OPEN_API_TITLE=Spring-Adam-Store
 OPEN_API_VERSION=v1.0.0
 OPEN_API_DESCRIPTION=Api Service
 SERVER_IP=localhost
