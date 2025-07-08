@@ -1,5 +1,5 @@
-# Spring Fashion Sales Store
-Spring Fashion Sales Store is an e-commerce website built with Spring Boot, specializing in selling men's clothing
+# Spring Adam Store
+Spring Adam Store is an e-commerce website built with Spring Boot, specializing in selling men's clothing
 ## Tech Stack
 - **Build Tool:**: Maven >= 3.2.3
 - **Java**: 17
@@ -8,7 +8,7 @@ Spring Fashion Sales Store is an e-commerce website built with Spring Boot, spec
 ## Build and Run
 **1. Clone Repository :**
 ```java
-git clone https://github.com/lean2708/Spring_AdamStore.git 
+git clone https://github.com/trinhdong2505dz/Spring_AdamStore.git 
 cd Spring_AdamStore
 ```
 - Then, create and configure the **.env** file
