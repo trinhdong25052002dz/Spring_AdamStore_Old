@@ -8,7 +8,7 @@ Spring Adam Store is an e-commerce website built with Spring Boot, specializing 
 ## Build and Run
 **1. Clone Repository :**
 ```java
-git clone https://github.com/trinhdong2505dz/Spring_AdamStore.git 
+git clone https://github.com/trinhdong25052002dz/Spring_AdamStore.git 
 cd Spring_AdamStore
 ```
 - Then, create and configure the **.env** file
