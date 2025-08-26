@@ -46,7 +46,7 @@ GHN_PROVINCE_URL=https://online-gateway.ghn.vn/shiip/public-api/master-data/prov
 GHN_DISTRICT_URL=https://online-gateway.ghn.vn/shiip/public-api/master-data/district
 GHN_WARD_URL=https://online-gateway.ghn.vn/shiip/public-api/master-data/ward
 GHN_FEE_URL=https://online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee
-SHOP_ID=4923862
+SHOP_ID=5971574
 SERVICE_TYPE_ID=2
 FROM_DISTRICT_ID=1455
 
@@ -59,6 +59,7 @@ VNPAY_RETURN_URL=http://localhost:5174/
 VNPAY_VERSION=2.1.0
 VNPAY_COMMAND=pay
 VNPAY_ORDER_TYPE=other
+
 
 
 
