@@ -39,7 +39,9 @@ public class SecurityConfig {
     private final String[] GET_URLS  = {
             "/v1/branches", "/v1/branches/*",
             "/v1/products", "/v1/products/*",
-            "/v1/categories", "/v1/categories/*"
+            "/v1/categories", "/v1/categories/*",
+            "/v1/colors", "/v1/colors/*",
+            "/v1/sizes", "/v1/sizes/*"
     };
 
     @Bean
